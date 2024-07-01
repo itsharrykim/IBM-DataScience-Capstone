@@ -80,11 +80,13 @@ def get_scatter_chart(entered_site, entered_payload):
     if entered_site == 'ALL':
         fig = px.scatter(x=payload_range_df['Payload Mass (kg)'], y=payload_range_df["class"],
         title="Launch Success vs Payload Mass", color=payload_range_df["Booster Version Category"])
+        fig.update_layout(xaxis_title="Payload Mass (kg)", yaxis_title="Class")
         return fig
     else:
         filtered_df = payload_range_df[payload_range_df['Launch Site'] == entered_site] 
         fig = px.scatter(x=filtered_df['Payload Mass (kg)'], y=filtered_df["class"],
         title="Launch Success vs Payload Mass", color=filtered_df["Booster Version Category"])
+        fig.update_layout(xaxis_title="Payload Mass (kg)", yaxis_title="Class")
         return fig
 
 
